@@ -82,7 +82,7 @@ pass_secret=$(pwgen -s 96)
 sed -i -e 's|password_secret =|password_secret = '$pass_secret'|' /etc/graylog2/server/server.conf
 sed -i -e 's|application.secret=""|application.secret="'$pass_secret'"|' /etc/graylog2/web/graylog2-web-interface.conf
 sed -i -e 's|graylog2-server.uris=""|graylog2-server.uris="'http://127.0.0.1:12900/'"|' /etc/graylog2/web/graylog2-web-interface.conf
-sed -i -e 's|#elasticsearch_cluster_name = elasticsearch|elasticsearch_cluster_name = graylog2-production|' /etc/graylog2/server/server.conf
+sed -i -e 's|#elasticsearch_cluster_name = graylog2|elasticsearch_cluster_name = graylog2-production|' /etc/graylog2/server/server.conf
 sed -i -e 's|#elasticsearch_discovery_zen_ping_multicast_enabled = false|elasticsearch_discovery_zen_ping_multicast_enabled = false|' /etc/graylog2/server/server.conf
 sed -i -e 's|#elasticsearch_discovery_zen_ping_unicast_hosts = 192.168.1.203:9300|elasticsearch_discovery_zen_ping_unicast_hosts = 127.0.0.1:9300|' /etc/graylog2/server/server.conf
 sed -i -e 's|#elasticsearch_node_name = graylog2|elasticsearch_node_name = graylog2-production|' /etc/graylog2/server/server.conf
